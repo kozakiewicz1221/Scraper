@@ -33,7 +33,6 @@ const GetItems = async searchTerm => {
 const initScraper = async () => {
   const items = await GetItems();
   const majorArray = items;
-  console.log(majorArray);
   return items;
 };
 

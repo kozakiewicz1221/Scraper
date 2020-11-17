@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const majorArray = [];
 
-const GetItems = async searchTerm => {
+const GetItems = async (searchTerm) => {
   const browser = await puppeteer.launch({ headless: true, devtools: true });
   const page = await browser.newPage();
   console.log("Scraping started...");
@@ -15,7 +15,7 @@ const GetItems = async searchTerm => {
         const ItemNodeList = document.querySelectorAll(
           "#body-news > div.app > section.cn-news-grid > div > div"
         );
-        ItemNodeList.forEach(item => {
+        ItemNodeList.forEach((item) => {
           const img = item.querySelector("a > img").getAttribute("src");
           const title = item.querySelector("div > h4 > a").innerText;
           const url = item.querySelector("div > h4 > a").getAttribute("href");
@@ -27,15 +27,13 @@ const GetItems = async searchTerm => {
       })
     )
     .catch(() => console.log("Error"));
-  console.log("Scraping finished !");
+  console.log("Scraping has finished");
 
   return itemList;
 };
 
 const initScraper = async () => {
-  const items = await GetItems();
-  const majorArray = items;
-  return items;
+  return await GetItems();
 };
 
 module.exports = initScraper;

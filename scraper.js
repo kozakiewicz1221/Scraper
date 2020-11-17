@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const majorArray = [];
 
 const GetItems = async (searchTerm) => {
-  const browser = await puppeteer.launch({ headless: true, devtools: true });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   console.log("Scraping started...");
   await page.goto("https://cryptonews.com/news/bitcoin-news/");

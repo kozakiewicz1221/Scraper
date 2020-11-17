@@ -5,12 +5,7 @@ const initScraper = require("./scraper");
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./cbd-4de96-firebase-adminsdk-xgck9-81ea4d9268.json");
-app.get("/hello", () => {
-  res.send("Hello");
-});
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://cbd-4de96.firebaseio.com",
@@ -26,5 +21,12 @@ admin.initializeApp({
     docRef.set(item);
   });
 })();
+
+app.get("/hello", (req, res) => {
+  res.send("Hello");
+});
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
 
 app.listen(3000, () => console.log(`Example app listening on port 3000`));

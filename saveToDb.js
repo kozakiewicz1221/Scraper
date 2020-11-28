@@ -1,34 +1,56 @@
-const MongoClient = require("mongodb").MongoClient;
-const data = require("./data");
-const { mongoURI } = data;
+var striptags = require("striptags");
 
-const client = new MongoClient(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+function saveToDb(wpPosts, db, collection) {
+  console.log("Saving to db...");
+  wpPosts.forEach((post, i) => {
+    var pathArray = post.guid.rendered.split("/");
+    let categories = [];
+    let tags = [];
 
-const saveToDb = dataObj => {
-  console.log("Saving to DB started");
+    //---GET CATEGORIES ----
+    post._embedded["wp:term"][0]
+      .filter(
+        (item) =>
+          item.taxonomy === "category" &&
+          item.slug !== "featured" &&
+          item.slug !== "bez-kategori"
+      )
+      .forEach((item) => {
+        categories = [...categories, { name: item.name, slug: item.slug }];
+      });
+    //---GET TAGS ----
+    post._embedded["wp:term"][1]
+      .filter((item) => item.taxonomy === "post_tag")
+      .forEach((item) => {
+        tags = [...tags, { name: item.name, slug: item.slug }];
+      });
 
-  client.connect(async err => {
-    const db = client.db("scraper").collection("news");
-    const database = await db.find().toArray();
-    const scrapedData = await dataObj;
+    //---SAVE TO DB ----
+    db.collection(collection)
+      .doc(`${post.id}`)
+      .set({
+        id: post.id,
+        base_url: pathArray[2],
+        postUrl: post.link,
+        categories: categories,
+        tags: tags,
+        images: "###############",
 
-    // Comparing loop
-    for (var i = 0; i < scrapedData.length; i++) {
-      const matched = await db.find({ title: scrapedData[i].title }).toArray();
-
-      if (matched.length < 1) {
-        // Saving to DB
-        db.insertOne(scrapedData[i]);
-        console.log("New posts inserted");
-      } else {
-        console.log("comparing posts...");
-      }
-    } //end loop
-    console.log("Saved to DB");
+        // post._embedded["wp:featuredmedia"][0].media_details.sizes !=
+        // "undefined"
+        //   ? post._embedded["wp:featuredmedia"][0].media_details.sizes
+        //   : "",
+        title: post.title.rendered,
+        excerpt: striptags(post.excerpt.rendered),
+        content: striptags(post.content.rendered),
+        date: post.date,
+        date_gmt: post.date_gmt,
+        slug: post.slug,
+      });
   });
-};
+  console.log("-----------------------");
+  console.log("Saved to db succesfully.");
+  console.log("-----------------------");
+}
 
 module.exports = saveToDb;

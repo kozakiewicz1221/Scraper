@@ -1,32 +1,23 @@
 const express = require("express");
 const app = express();
-const initScraper = require("./scraper");
-// const saveToDb = require("./saveToDb");
-var admin = require("firebase-admin");
+const getPosts = require("./getPosts");
+const saveToDb = require("./saveToDb");
+var CronJob = require("cron").CronJob;
+const { db } = require("./firebase");
+const hempLinks = require("./links/hempLinks");
+const fitLinks = require("./links/fitLinks");
 
-var serviceAccount = require("./cbd-4de96-firebase-adminsdk-xgck9-81ea4d9268.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://cbd-4de96.firebaseio.com",
-});
-
+// INIT SCRAPER
 (async () => {
-  const items = await initScraper();
-  const db = await admin.firestore();
-
-  items.forEach((item) => {
-    console.log(item);
-    const docRef = db.collection("posts").doc(item.title);
-    docRef.set(item);
-  });
+  const hempPosts = await getPosts(hempLinks);
+  saveToDb(hempPosts, db, "hempPosts");
+  const fitPosts = await getPosts(fitLinks);
+  saveToDb(fitPosts, db, "fitPosts");
 })();
 
+// ROUTES
 app.get("/hello", (req, res) => {
   res.send("Hello");
 });
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
 
-app.listen(3000, () => console.log(`Example app listening on port 3000`));
+app.listen(3000, () => console.log(``));

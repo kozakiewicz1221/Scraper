@@ -1,25 +1,22 @@
 {
   "name": "scraper",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "cbd wp posts scraper",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "console.table": "^0.10.0",
+    "cron": "^1.8.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "firebase": "^8.1.1",
     "firebase-admin": "^9.4.1",
-    "handlebars": "^4.7.3",
-    "hbs": "^4.1.0",
     "install": "^0.13.0",
-    "mongo": "^0.1.0",
-    "mongoose": "^5.9.5",
+    "node-fetch": "^2.6.1",
     "npm": "^6.14.8",
-    "pug": "^2.0.4",
-    "puppeteer": "^2.1.1"
+    "striptags": "^3.1.1"
   }
 }

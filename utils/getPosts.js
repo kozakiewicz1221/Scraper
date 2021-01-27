@@ -12,7 +12,7 @@ const init = (links) => {
         .then((data) => {
           allPosts = [...allPosts, ...data];
           console.log("-----------------------");
-          console.log("Fetched ", allPosts.length, " posts");
+          console.log("Fetched ", data.length, " posts");
           var url = link.split("/");
           console.log("from: ", url[2]);
           console.log("-----------------------");
@@ -27,7 +27,7 @@ const init = (links) => {
     );
     sorted = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
     fetched = true;
-    return sorted;
+    return allPosts;
   });
 };
 

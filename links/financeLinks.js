@@ -1,0 +1,140 @@
+const cryptoLinks = [
+  "https://bithub.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptowaluty.info.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://cryps.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://comparic.pl/wp-json/wp/v2/posts?_embed&categories=92&per_page=40",
+  "https://bitcoin.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.kryptoportal.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://gieldykryptowalut.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://infocrypto.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://cyberkrypto.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://cryptoprofit.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://bitcoinpl.org/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://cyfrowaekonomia.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptowaluty.expert/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://beincrypto.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.kryptoporady.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.kryptoporadnik.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://coininsider.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptoraport.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://beatcoin.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://cryptomaniak.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://e-kursy-walut.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptopan.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptowaluty2.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://forumkryptowalut.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptomakler.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kryptobot.net/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://blogprezesa.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kantorbitcoin.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://taxo-krypto.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+// Finanse osobitste inteligencja finansowa, oszczedzanie
+const finanseOsobisteLinks = [
+  "https://bogatystudent.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://jakoszczedzacpieniadze.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://finanseodkuchni.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kobietainwestuje.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://bloginwestycyjny.eu/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.rozsadnibracia.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://zaradnyfinansowo.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.zarobko.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kobiecefinanse.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://oszczednicka.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://finansenaobcasach.info/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://tosieoplaca.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.oszczedzanienaprzyszlosc.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://oszczednapolka.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://metafinanse.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://finanseodpodstaw.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.pieniadzjestkobieta.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.finansowysilacz.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://multiporadnik.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://bogatyzwyboru.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://finansemlodych.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+// Ogolne finanse
+const ogolneFinanseLinks = [
+  "https://www.zarobko.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://subiektywnieofinansach.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kobiecefinanse.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.oszczedzanienaprzyszlosc.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://oszczednapolka.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://social.estate/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://finanseodpodstaw.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.finansowysilacz.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://multiporadnik.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+// Inwestycje, giełda, złoto, surowce
+const inwestycjeLinks = [
+  "https://goldenmark.com/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://stockbroker.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://maklerska.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.michalstopka.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://marciniwuc.com/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://inwestomat.eu/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kobietainwestuje.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://pawelsalamucha.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://bloginwestycyjny.eu/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.rozsadnibracia.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://akademia-finansow.eu/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://inwestowanienagieldzie.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kobiecastronainwestowania.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://dariuszgrupa.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://wojciechbialek.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.technikaichimoku.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.prywatnyinvestor.com/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://gazetagieldowa.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://kupujeaktywa.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.doradca.tv/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://systemtrader.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+// Newsy, gospodarka, biznes, ekonomia
+const newsyLinks = [
+  "https://ccnews.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://webmagazyn.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://ideologia.pl/wp-json/wp/v2/posts?categories=25&_embed&per_page=40",
+  "https://prasowki.org/wp-json/wp/v2/posts?categories=289&_embed&per_page=40",
+  "https://alebank.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://egpp.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.obserwatorfinansowy.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://300gospodarka.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://ostrowiecka.pl/wp-json/wp/v2/posts?categories=10,6,49&_embed&per_page=40",
+  "https://allebiznes.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://mambiznes.news/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.horecanet.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://biznes-go.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://hrnews.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://biznesalert.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://www.biznes-plus.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://teoriabiznesu.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://mambiznes.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://fashionbiznes.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+// Rozwoj osbosty, marketing, biznes
+const rozwojOsobistyLinks = [
+  "https://liczysiewynik.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+const nieruchomosciLinks = [
+  "https://panstwopiesto.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://mieszkalnik.info/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://inwestujwnieruchomosci.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://grunttoziemia.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "http://mojewynajmowanie.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://mzuri.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+  "https://wynajmistrz.pl/wp-json/wp/v2/posts?_embed&per_page=40",
+];
+
+module.exports = {
+  cryptoLinks,
+  finanseOsobisteLinks,
+  newsyLinks,
+  inwestycjeLinks,
+  nieruchomosciLinks,
+  rozwojOsobistyLinks,
+};
